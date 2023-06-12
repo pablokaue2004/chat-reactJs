@@ -15,7 +15,6 @@ export const Login = () => {
     setSocket(newSocket);
 
     newSocket.on("authenticated", (user) => {
-      // Navegar para a tela de chat após autenticação bem-sucedida
       navigate("/chat", { state: { user } });
     });
 
@@ -36,13 +35,10 @@ export const Login = () => {
     },
     validationSchema,
     onSubmit: (values) => {
-      // Enviar dados de login para o servidor
       socket?.emit("login", values, (response: any) => {
-        // Callback executado após o evento "login" ser emitido e o servidor responder
         if (response.success) {
-          navigate("/chat"); // Navegar para a tela de chat após autenticação bem-sucedida
+          navigate("/chat"); 
         } else {
-          // Lógica de tratamento de erro, se necessário
           console.log("deu erro");
         }
       });
