@@ -17,21 +17,16 @@ io.on('connection', (socket) => {
   console.log('Novo cliente conectado');
 
   socket.on('login', (credentials) => {
-    console.log(credentials); // Verifique se os dados de login estão sendo recebidos corretamente
+    console.log(credentials); 
 
-    // Lógica de autenticação e verificação de credenciais
-    // ...
-
-    // Extrair firstName e lastName do objeto credentials
+ 
     const { firstName, lastName } = credentials;
 
-    // Criar um objeto de usuário com firstName e lastName
     const user = {
       firstName,
       lastName
     };
 
-    // Emitir evento 'authenticated' para o cliente com o objeto de usuário completo
     socket.emit('authenticated', { user });
   });
 
