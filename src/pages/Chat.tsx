@@ -31,9 +31,8 @@ export const Chat = () => {
   }, []);
 
   const handleSendMessage = () => {
-    // Enviar mensagem para o servidor via Socket.io
     const newMessage: Message = {
-      user: user, // Altere aqui para passar o objeto de usuário diretamente
+      user: user, 
       content: message,
     };
     setMessages((prevMessages) => [...prevMessages, newMessage]);
@@ -73,7 +72,7 @@ export const Chat = () => {
           Voltar
         </button>
       </div>
-    ); // Ou renderizar uma mensagem de erro, redirecionar, etc.
+    );
   }
 
   return (
